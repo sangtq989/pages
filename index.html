@@ -35,13 +35,13 @@
             <a class="text-muted" href="#">Subscribe</a>
           </div>
           <div class="col-4 text-center">
-            <a class="blog-header-logo text-dark" href="#">Large</a>
+            <a class="blog-header-logo text-dark" href="#" id="g_event_click_logo">Large</a>
           </div>
           <div class="col-4 d-flex justify-content-end align-items-center">
             <a class="text-muted" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
             </a>
-            <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+            <a class="btn btn-sm btn-outline-secondary" href="#" id="g_event_click_signup">Sign up</a>
           </div>
         </div>
       </header>
@@ -237,6 +237,26 @@
       });
     </script>
     <!-- Google tag (gtag.js) -->
-  
+    <script>
+      document.addEventListener('DOMContentLoaded', (event) => {
+        // Bind click event to button
+        document.getElementById('g_event_click_logo').addEventListener('click', function() {
+          gtag('event', 'g_event_click_logo', {
+            'event_category': 'Logo',
+            'event_label': 'Logo clicked',
+            'value': 1
+          });
+        });
+    
+        // Bind click event to link
+        document.getElementById('g_event_click_signup').addEventListener('click', function() {
+          gtag('event', 'g_event_click_signup', {
+            'event_category': 'Button',
+            'event_label': 'Click sign up button',
+            'value': 1
+          });
+        });
+      });
+    </script>  
   </body>
 </html>
